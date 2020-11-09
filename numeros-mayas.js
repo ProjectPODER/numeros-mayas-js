@@ -10,6 +10,14 @@ Instructions:
 2. Include this library in the header: <script type="text/javascript" src="js/numeros-mayas.js"></script>
 3. Update your site, check for errors in the console
 4. If you see any error please report it https://github.com/projectpoder/numeros-mayas-js
+5. Configuration: Add a script tag with the following configuration options
+<script type="text/javascirpt">
+const numeros_mayas_config = {
+    button_code: "",
+    direction: "vertical", //or horizontal
+    selector: "p"
+}
+</script>
 
 This library adds mayan numerals to all arabic numbers found inside paragraphs <p></p>. Only deals with integers, any decimal number will be rounded.
 
@@ -31,12 +39,30 @@ TODO:
 - Make it configurable
 - Improve documentation and code format
 
+
 */
 
 
 
 marcarNumerosArabigos = function(){
-    parrafos = document.querySelectorAll('p');
+
+    //Apply defaults to config
+    let config = Object.assign({},{
+        button_code: '<span style="vertical-align: super; font-size: 0.7em; color: #333; background: #ec6;padding: 2px; border-radius: 3px; cursor: pointer" title="Ver este número en idioma maya">m</span>',
+        direction: "vertical", 
+        selector: "p",
+        number_container_style: "display: none; position: absolute; padding: 5px; border-radius: 5px; background: #ec6; text-align: center;"
+    }, numeros_mayas_config);
+
+    if (config.direction == "vertical") {
+        config.number_container_style+= "width: 60px";
+    }
+
+    parrafos = document.querySelectorAll(config.selector);
+
+    if (parrafos.length == 0) {
+        console.error("NumerosMayasJS","Selector didn't match any objects",config.selector);
+    }
 
     for (const parrafo of parrafos) {
         // console.log(parrafo);
@@ -48,8 +74,8 @@ marcarNumerosArabigos = function(){
             // console.log(palabra,Number(palabra) == NaN);
             if(!isNaN(parseInt(palabra.replace(/,/,"")))){
                 palabras[i] = '<span class="numero-arabigo">' + palabra + '</span>'+
-                                '<span class="numero-toggle" data-target-id="'+i+'" data-value="'+palabra+'" style="vertical-align: super; font-size: 0.7em; color: #333; background: #ec6;padding: 2px; border-radius: 3px; cursor: pointer" title="Ver este número en idioma maya">m</span>'+
-                                '<span class="numero-maya" id="numero-maya-'+i+'"  style="display: none; position: absolute; padding: 5px; border-radius: 5px; width: 60px; background: #ec6; text-align: center;"></span>';
+                                '<span class="numero-toggle" data-target-id="'+i+'" data-value="'+palabra+'">'+config.button_code+'</span>'+
+                                '<span class="numero-maya" id="numero-maya-'+i+'" style="'+config.number_container_style+'"></span>';
             }
         }
         parrafo.innerHTML = palabras.join(' ');
@@ -62,11 +88,11 @@ marcarNumerosArabigos = function(){
         toggle = toggle_i[1];
         toggle.addEventListener("click", e => {
             // console.log(e.target);
-            target_id = e.target.dataset.targetId
+            target_id = e.currentTarget.dataset.targetId
             // console.log(document.getElementById("numero-maya-"+target_id));
             targetNumero = document.getElementById("numero-maya-"+target_id);
             if (!targetNumero.innerHTML) {
-                targetNumero.innerHTML = numerosMayas(e.target.dataset.value);
+                targetNumero.innerHTML = numerosMayas(e.currentTarget.dataset.value);
             }
 
             if (targetNumero.style.display == "none") {
@@ -89,12 +115,12 @@ function numerosMayas(numero) {
     coeficientes = getCoeficientes(numero,nivel)
     imagenes = generarImagenes(coeficientes,nivel)
 
-    html = "<span style='font-size: 0.7em; padding: 0.4em; display: inline-block'>Número maya:</span>";
+    html = "<span style='font-size: 0.7em; padding: 0.4em; display: inline-block; vertical-align: top'>Número maya:</span>";
     // console.log("numerosMayas imagenes",numero, imagenes);
     imagenes.reverse();
     for (nivel in imagenes) {
         realnivel = imagenes.length-nivel-1;
-        html += "<span style='background: #eee; display: inline-block; padding: 5px; border-radius: 5px' title='Numero "+imagenes[nivel].numero+" en maya, nivel "+realnivel+". Valor parcial: "+imagenes[nivel].numero+"x20^"+realnivel+" = "+(parseInt(imagenes[nivel].numero)*20**realnivel).toLocaleString()+"'>";
+        html += "<span style='background: #eee; display: inline-block; padding: 5px; margin-right: 5px; border-radius: 5px' title='Numero "+imagenes[nivel].numero+" en maya, nivel "+realnivel+". Valor parcial: "+imagenes[nivel].numero+"x20^"+realnivel+" = "+(parseInt(imagenes[nivel].numero)*20**realnivel).toLocaleString()+"'>";
         for (imagen in imagenes[nivel].componentes) {
             let glifo = glifos_mayas[imagenes[nivel].componentes[imagen]];
             html+='<svg xmlns="http://www.w3.org/2000/svg" display="block" width="'+glifo.width+'px" height="'+glifo.height+'px">'+
