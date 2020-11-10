@@ -1,29 +1,69 @@
-# Numeros Mayas JS - Agregue números mayas a su sitio web
+**Numeros Mayas JS - Agregue números mayas a su sitio web**
+===========================================================
 
-License: GPLv3
+## Introducción
 
-Author: Martín Szyszlican <msz@poderlatam.org>
+Esta librería agrega números mayas como alternativa a cualquier número arábigo que se detecte en las páginas en las que esté incluída. Es configurable el estilo del botón, del desplegable y el selector de elementos para realizar el reemplazo. Sólo trabaja con números enteros, todos los decimales se redondean al entero más cercano.
 
-Instructions: 
-1. Copy this file to the javascript folder in your project
-2. Include this library in the header: <script type="text/javascript" src="js/numeros-mayas.js"></script>
-3. Update your site, check for errors in the console
-4. If you see any error please report it https://github.com/projectpoder/numeros-mayas-js
+Este proyecto nace a partir la investigación periodística, de datos y corporativa sobre los impactos del proyecto Tren Maya en el sureste mexicano realizada por PODER.
 
-This library adds mayan numerals to all arabic numbers found inside paragraphs <p></p>. Only deals with integers, any decimal number will be rounded.
+### ¿Qué son los números mayas?
 
-Code inspired by: Carlos Bustillo, Aprender numeración maya https://github.com/cabustillo13/Aprender-numeracion-maya/
+La matemática maya es una antigua técnica que aún se practica, se investiga y se enseña en diferentes zonas de centroamérica y el sur de México. Tiene con grandes ventajas sobre la matemática corriente: por estar en base 20, con pocos números se puede llegar a expresar valores grandes, además es más simple en su expresión porque tiene sólo 3 símbolos: punto (1), raya (5) y cero. El cero se representa de diferentes formas. Además para hacer operaciones matemáticas (suma, resta, multiplicación , etc) resulta muy sencillo realizarlas de forma analítica sin necesidad de aprender tablas o técnicas complejas propensas a errores.
 
-Zero based on: https://es.wikipedia.org/wiki/Archivo:Mayan00.svg
+Es importante difundir y promover el uso de esta notación para destacar lo rico de la cultura Maya y ampliar la perspectiva sobre lo que es posible hacer en matemática y en la web.
 
-Thanks to: Club de Software Libre, PODER
+## Instrucciones de uso
 
-Academic sources:
-- https://pueblosoriginarios.com/meso/maya/maya/numeracion.html
-- https://prometeo.matem.unam.mx/repositorio/node/1008
-- http://vinculacion.dgire.unam.mx/vinculacion-1/sitio_LCDC/PDF-LCDC/REVISTA-DE-CIENCIAS-MATEMATICAS/Doc24.pdf
-- Dice que no hay límite a los niveles: http://www.famsi.org/spanish/research/pitts/GlifosMayasLibro2.pdf
-- Dice que no hay límite a los niveles: https://mediateca.inah.gob.mx/islandora_74/islandora/object/libro%3A389
-- Versión horizontal: https://help.sugarlabs.org/turtleart_tutorials/numerals.html
+1.  Descargar el archivo numeros-mayas.js y copiarlo a la carpeta de javascript de su sitio
+2.  Incluya este código en su sitio antes del fin del body
+```
+&lt;script type="text/javascript" src="js/numeros-mayas.js"&gt;&lt;/script&gt;
 
+&lt;script type="text/javascirpt"&gt;
 
+const numeros\_mayas\_config = {
+
+ button\_code: "",
+
+ direction: "vertical", //or horizontal
+
+ selector: "p"
+
+}
+
+&lt;/script&gt;
+```
+3.  Modifique las opciones de configuración
+4.  Actualice su sitio y revise si hay errores en la consola
+5.  Si encuentra errores, por favor repórtelos en [*https://github.com/projectpoder/numeros-mayas-js*](https://github.com/projectpoder/numeros-mayas-js)
+
+### Opciones de configuración
+
+Opciones de configuración
+
+*button_code*: Es el código HTML que se utilizará para mostrar el botón de desplegar el número maya. Default:  `<span style="vertical-align: super; font-size: 0.7em; color: #333; background: #ec6;padding: 2px; border-radius: 3px; cursor: pointer" title="Ver este número en idioma maya">m</span> `.
+*direction*: Es la dirección en la que se desplegará el número maya, puede ser horizontal o vertical. Default: `vertical`.
+*selector*: Es el selector CSS para los elementos en los que se buscarán números arábigos para reemplazar. Se puede utilizar una etiqueta, id, o clase. Default: `p`.
+*number_container_style*: Es el código CSS para el contenedor de los números mayas. Se puede personalizar el color. Para el tamaño utilizar zoom. Default: `display: none; position: absolute; padding: 5px; border-radius: 5px; background: #ec6; text-align: center;`.
+
+## Créditos
+
+Esta librería creada por Martín Szyszlican [*msz@poderlatam.org*](mailto:msz@poderlatam.org) implementa una versión de la matemática vigesimal maya tradicional. El código está basado en el trabajo de Carlos Bustillo “Aprender numeración maya” [*https://github.com/cabustillo13/Aprender-numeracion-maya/*](https://github.com/cabustillo13/Aprender-numeracion-maya/)
+
+El gráfico para el cero está adaptado a partir del archivo disponible en Wikipedia [*https://es.wikipedia.org/wiki/Archivo:Mayan00.svg*](https://es.wikipedia.org/wiki/Archivo:Mayan00.svg)
+
+### Agradecimientos:
+
+-   Club de Software Libre
+-   PODER
+-   Fidencio Briceño
+-   Fernando Magaña
+
+### Fuentes bibliográficas consultadas
+
+-   “Numeración Maya” en PueblosOriginarios.com [*https://pueblosoriginarios.com/meso/maya/maya/numeracion.html*](https://pueblosoriginarios.com/meso/maya/maya/numeracion.html)
+-   “El sistema de numeración maya“ [*https://prometeo.matem.unam.mx/repositorio/node/1008*](https://prometeo.matem.unam.mx/repositorio/node/1008)
+-   “Las matemáticas y los mayas”, Luis Fernando Magaña, Ciencias 19, Julio 1990 [*http://vinculacion.dgire.unam.mx/vinculacion-1/sitio\_LCDC/PDF-LCDC/REVISTA-DE-CIENCIAS-MATEMATICAS/Doc24.pdf*](http://vinculacion.dgire.unam.mx/vinculacion-1/sitio_LCDC/PDF-LCDC/REVISTA-DE-CIENCIAS-MATEMATICAS/Doc24.pdf)
+-   “Los números mayas y el calendario maya“, Mark Pitts [*http://www.famsi.org/spanish/research/pitts/GlifosMayasLibro2.pdf*](http://www.famsi.org/spanish/research/pitts/GlifosMayasLibro2.pdf)
+-   Diccionario Maya Cordemex. Maya-Español, Español-Maya. [Vásquez A.B.](https://b-ok.lat/g/V%C3%A1squez%20A.B.) Merida: Ediciones Cordemex, 1980. <https://b-ok.lat/book/3261710/527437?regionChanged=&redirect=33201554>
