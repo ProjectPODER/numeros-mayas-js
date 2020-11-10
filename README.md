@@ -22,9 +22,9 @@ Es importante difundir y promover el uso de esta notación para destacar lo rico
 
 <script type="text/javascirpt">
 
-const numeros\_mayas\_config = {
+const numeros_mayas_config = {
 
- button\_code: "",
+ button_code: "",
 
  direction: "vertical", //or horizontal
 
@@ -40,7 +40,7 @@ const numeros\_mayas\_config = {
 
 ### Opciones de configuración
 
-Opciones de configuración
+Los siguientes valores se pueden configurar dentro de la variable global `numeros_mayas_config`.
 
 **button_code**: Es el código HTML que se utilizará para mostrar el botón de desplegar el número maya. Default:  `<span style="vertical-align: super; font-size: 0.7em; color: #333; background: #ec6;padding: 2px; border-radius: 3px; cursor: pointer" title="Ver este número en idioma maya">m</span> `.
 
