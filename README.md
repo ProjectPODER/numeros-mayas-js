@@ -18,9 +18,9 @@ Es importante difundir y promover el uso de esta notación para destacar lo rico
 1.  Descargar el archivo numeros-mayas.js y copiarlo a la carpeta de javascript de su sitio
 2.  Incluya este código en su sitio antes del fin del body
 ```
-&lt;script type="text/javascript" src="js/numeros-mayas.js"&gt;&lt;/script&gt;
+<script type="text/javascript" src="js/numeros-mayas.js"></script>
 
-&lt;script type="text/javascirpt"&gt;
+<script type="text/javascirpt">
 
 const numeros\_mayas\_config = {
 
@@ -32,7 +32,7 @@ const numeros\_mayas\_config = {
 
 }
 
-&lt;/script&gt;
+</script>
 ```
 3.  Modifique las opciones de configuración
 4.  Actualice su sitio y revise si hay errores en la consola
@@ -42,10 +42,13 @@ const numeros\_mayas\_config = {
 
 Opciones de configuración
 
-*button_code*: Es el código HTML que se utilizará para mostrar el botón de desplegar el número maya. Default:  `<span style="vertical-align: super; font-size: 0.7em; color: #333; background: #ec6;padding: 2px; border-radius: 3px; cursor: pointer" title="Ver este número en idioma maya">m</span> `.
-*direction*: Es la dirección en la que se desplegará el número maya, puede ser horizontal o vertical. Default: `vertical`.
-*selector*: Es el selector CSS para los elementos en los que se buscarán números arábigos para reemplazar. Se puede utilizar una etiqueta, id, o clase. Default: `p`.
-*number_container_style*: Es el código CSS para el contenedor de los números mayas. Se puede personalizar el color. Para el tamaño utilizar zoom. Default: `display: none; position: absolute; padding: 5px; border-radius: 5px; background: #ec6; text-align: center;`.
+**button_code**: Es el código HTML que se utilizará para mostrar el botón de desplegar el número maya. Default:  `<span style="vertical-align: super; font-size: 0.7em; color: #333; background: #ec6;padding: 2px; border-radius: 3px; cursor: pointer" title="Ver este número en idioma maya">m</span> `.
+
+**direction**: Es la dirección en la que se desplegará el número maya, puede ser horizontal o vertical. Default: `vertical`.
+
+**selector**: Es el selector CSS para los elementos en los que se buscarán números arábigos para reemplazar. Se puede utilizar una etiqueta, id, o clase. Default: `p`.
+
+**number_container_style**: Es el código CSS para el contenedor de los números mayas. Se puede personalizar el color. Para el tamaño utilizar zoom. Default: `display: none; position: absolute; padding: 5px; border-radius: 5px; background: #ec6; text-align: center;`.
 
 ## Créditos
 
