@@ -19,19 +19,12 @@ Es importante difundir y promover el uso de esta notación para destacar lo rico
 2.  Incluya este código en su sitio antes del fin del body
 ```
 <script type="text/javascript" src="js/numeros-mayas.js"></script>
-
 <script type="text/javascirpt">
-
 const numeros_mayas_config = {
-
  button_code: "",
-
  direction: "vertical", //or horizontal
-
  selector: "p"
-
 }
-
 </script>
 ```
 3.  Modifique las opciones de configuración
