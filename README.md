@@ -7,8 +7,11 @@ Esta librería agrega números mayas como alternativa a cualquier número arábi
 
 Este proyecto nace a partir la investigación periodística, de datos y corporativa sobre los impactos del proyecto Tren Maya en el sureste mexicano realizada por PODER.
 
-Ejemplos de la librería:
+Ejemplo de la librería en vertical:
+
 ![Ejemplo de Numeros Mayas JS en vertical](ejemplo-vertical.png)
+
+Ejemplo de la librería en horizontal:
 
 ![Ejemplo de Numeros Mayas JS en horizontal](ejemplo-horizontal.png)
 
