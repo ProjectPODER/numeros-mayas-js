@@ -7,6 +7,11 @@ Esta librería agrega números mayas como alternativa a cualquier número arábi
 
 Este proyecto nace a partir la investigación periodística, de datos y corporativa sobre los impactos del proyecto Tren Maya en el sureste mexicano realizada por PODER.
 
+Ejemplos de la librería:
+![Ejemplo de Numeros Mayas JS en vertical](ejemplo-vertical.png)
+
+![Ejemplo de Numeros Mayas JS en horizontal](ejemplo-horizontal.png)
+
 ### ¿Qué son los números mayas?
 
 La matemática maya es una antigua técnica que aún se practica, se investiga y se enseña en diferentes zonas de centroamérica y el sur de México. Tiene con grandes ventajas sobre la matemática corriente: por estar en base 20, con pocos números se puede llegar a expresar valores grandes, además es más simple en su expresión porque tiene sólo 3 símbolos: punto (1), raya (5) y cero. El cero se representa de diferentes formas. Además para hacer operaciones matemáticas (suma, resta, multiplicación , etc) resulta muy sencillo realizarlas de forma analítica sin necesidad de aprender tablas o técnicas complejas propensas a errores.
@@ -14,6 +19,8 @@ La matemática maya es una antigua técnica que aún se practica, se investiga y
 Es importante difundir y promover el uso de esta notación para destacar lo rico de la cultura Maya y ampliar la perspectiva sobre lo que es posible hacer en matemática y en la web.
 
 ## Instrucciones de uso
+
+Para un ejemplo, revise el archivo `demo.html`.
 
 1.  Descargar el archivo numeros-mayas.js y copiarlo a la carpeta de javascript de su sitio
 2.  Incluya este código en su sitio antes del fin del body
