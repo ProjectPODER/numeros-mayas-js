@@ -7,6 +7,8 @@ Esta librería agrega números mayas como alternativa a cualquier número arábi
 
 Este proyecto nace a partir la investigación periodística, de datos y corporativa sobre los impactos del proyecto Tren Maya en el sureste mexicano realizada por PODER.
 
+Ver [DEMO](https://projectpoder.github.io/numeros-mayas-js/demo.html).
+
 Ejemplo de la librería en vertical:
 
 ![Ejemplo de Numeros Mayas JS en vertical](ejemplo-vertical.png)
@@ -17,7 +19,7 @@ Ejemplo de la librería en horizontal:
 
 ### ¿Qué son los números mayas?
 
-La matemática maya es una antigua técnica que aún se practica, se investiga y se enseña en diferentes zonas de centroamérica y el sur de México. Tiene con grandes ventajas sobre la matemática corriente: por estar en base 20, con pocos números se puede llegar a expresar valores grandes, además es más simple en su expresión porque tiene sólo 3 símbolos: punto (1), raya (5) y cero. El cero se representa de diferentes formas. Además para hacer operaciones matemáticas (suma, resta, multiplicación , etc) resulta muy sencillo realizarlas de forma analítica sin necesidad de aprender tablas o técnicas complejas propensas a errores.
+La matemática maya es una antigua técnica que aún se practica, se investiga y se enseña en diferentes zonas de centroamérica y el sur de México. Tiene grandes ventajas sobre la matemática corriente: por estar en base 20, con pocos números se puede llegar a expresar valores grandes, además es más simple en su expresión porque tiene sólo 3 símbolos: punto (1), raya (5) y cero. El cero se representa de diferentes formas. Además para hacer operaciones matemáticas (suma, resta, multiplicación , etc) resulta muy sencillo realizarlas de forma analítica sin necesidad de aprender tablas o técnicas complejas propensas a errores.
 
 Es importante difundir y promover el uso de esta notación para destacar lo rico de la cultura Maya y ampliar la perspectiva sobre lo que es posible hacer en matemática y en la web.
 
@@ -25,10 +27,10 @@ Es importante difundir y promover el uso de esta notación para destacar lo rico
 
 Para un ejemplo, revise el archivo `demo.html`.
 
-1.  Descargar el archivo numeros-mayas.js y copiarlo a la carpeta de javascript de su sitio
+1.  (opcional) Descargar el archivo numeros-mayas.js y copiarlo a la carpeta de javascript de su sitio
 2.  Incluya este código en su sitio antes del fin del body
 ```
-<script type="text/javascript" src="js/numeros-mayas.js"></script>
+<script type="text/javascript" src="https://projectpoder.github.io/numeros-mayas-js/numeros-mayas.js"></script>
 <script type="text/javascirpt">
 const numeros_mayas_config = {
  button_code: "",
@@ -52,6 +54,17 @@ Los siguientes valores se pueden configurar dentro de la variable global `numero
 **selector**: Es el selector CSS para los elementos en los que se buscarán números arábigos para reemplazar. Se puede utilizar una etiqueta, id, o clase. Default: `p`.
 
 **number_container_style**: Es el código CSS para el contenedor de los números mayas. Se puede personalizar el color. Para el tamaño utilizar zoom. Default: `display: none; position: absolute; padding: 5px; border-radius: 5px; background: #ec6; text-align: center;`.
+
+## Contribuciones
+
+Este proyecto está abierto a colaboración, algunas ideas de tareas pendientes:
+- [ ] Publicar el paquete en NPM
+- [ ] Traducir documentación
+- [ ] Modo "inline" para el reemplazo de números
+- [ ] Activar para números cargados dinámicamente
+- Nuevas funcionalidades que se hagan necesarias para usos específicos
+
+Para consultas contactar a msz@poderlatam.org
 
 ## Créditos
 
