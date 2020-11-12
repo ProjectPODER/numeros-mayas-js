@@ -50,6 +50,7 @@ marcarNumerosArabigos = function(config_local){
         console.error("NumerosMayasJS","Selector didn't match any objects",config.selector);
     }
 
+    const prefix = config.selector.replace(/[^a-z]/gi, "");
     let iparrafo = 0;
     for (const parrafo of parrafos) {
         iparrafo++;
@@ -76,8 +77,8 @@ marcarNumerosArabigos = function(config_local){
                 // console.log(palabra,Number(palabra) == NaN);
                 if(!isNaN(parseInt(palabra.replace(/,/,"")))){
                     palabras[ipalabra] = '<span class="numero-arabigo">' + palabra + '</span>'+
-                                    '<span class="numero-toggle" data-target-id="'+(ipalabra+iparrafo)+'" data-value="'+palabra+'">'+config.button_code+'</span>'+
-                                    '<span class="numero-maya" id="numero-maya-'+(ipalabra+iparrafo)+'" style="'+config.number_container_style+'"></span>';
+                                    '<span class="numero-toggle" data-target-id="'+prefix+(ipalabra+iparrafo)+'" data-value="'+palabra+'">'+config.button_code+'</span>'+
+                                    '<span class="numero-maya" id="numero-maya-'+prefix+(ipalabra+iparrafo)+'" style="'+config.number_container_style+'"></span>';
                 }
             }
             
