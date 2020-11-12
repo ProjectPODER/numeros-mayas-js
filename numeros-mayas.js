@@ -22,23 +22,27 @@ const numeros_mayas_config = {
     selector: "p"
 }
 </script>
+6. For dynamic content call `marcarNumerosArabigos({selector: "[selector]"});`
 */
 
 
 
-marcarNumerosArabigos = function(){
+marcarNumerosArabigos = function(config_local){
 
     //Apply defaults to config
+    //Precedence: config_local > numeros_mayas_config global > internal defaults
     let config = Object.assign({},{
         button_code: '<span style="vertical-align: super; font-size: 0.7em; color: #333; background: #ec6;padding: 2px; border-radius: 3px; cursor: pointer" title="Ver este número en idioma maya">m</span>',
         direction: "vertical", 
         selector: "p",
         number_container_style: "display: none; position: absolute; padding: 5px; border-radius: 5px; background: #ec6; text-align: center;"
-    }, numeros_mayas_config);
+    }, numeros_mayas_config, config_local);
 
     if (config.direction == "vertical") {
         config.number_container_style+= "width: 60px";
     }
+
+    // console.log("marcarNumerosArabigos",config);
 
     parrafos = document.querySelectorAll(config.selector);
 
@@ -46,19 +50,37 @@ marcarNumerosArabigos = function(){
         console.error("NumerosMayasJS","Selector didn't match any objects",config.selector);
     }
 
+    let iparrafo = 0;
     for (const parrafo of parrafos) {
+        iparrafo++;
         // console.log(parrafo);
-        var palabras = parrafo.innerText.split(' '),
-            i = palabras.length;
-        while(--i) {
-            
-            palabra = palabras[i];
-            // console.log(palabra,Number(palabra) == NaN);
-            if(!isNaN(parseInt(palabra.replace(/,/,"")))){
-                palabras[i] = '<span class="numero-arabigo">' + palabra + '</span>'+
-                                '<span class="numero-toggle" data-target-id="'+i+'" data-value="'+palabra+'">'+config.button_code+'</span>'+
-                                '<span class="numero-maya" id="numero-maya-'+i+'" style="'+config.number_container_style+'"></span>';
+        var palabras = parrafo.innerHTML.split(' '),
+            ipalabra = palabras.length,
+            ignorarHTML = false;
+
+        while(--ipalabra) {
+
+            palabra = palabras[ipalabra];
+
+            //Ignore HTML
+            //TODO: Only parse text nodes
+            if (palabra.indexOf(">") > -1) {
+                ignorarHTML = true;
             }
+            if (palabra.indexOf("<") > -1) {
+                ignorarHTML = false;
+            }
+            // console.log("ignorarHTML",ignorarHTML,palabra)
+
+            if (!ignorarHTML) {
+                // console.log(palabra,Number(palabra) == NaN);
+                if(!isNaN(parseInt(palabra.replace(/,/,"")))){
+                    palabras[ipalabra] = '<span class="numero-arabigo">' + palabra + '</span>'+
+                                    '<span class="numero-toggle" data-target-id="'+(ipalabra+iparrafo)+'" data-value="'+palabra+'">'+config.button_code+'</span>'+
+                                    '<span class="numero-maya" id="numero-maya-'+(ipalabra+iparrafo)+'" style="'+config.number_container_style+'"></span>';
+                }
+            }
+            
         }
         parrafo.innerHTML = palabras.join(' ');
     }

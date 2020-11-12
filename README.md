@@ -7,7 +7,7 @@ Esta librería agrega números mayas como alternativa a cualquier número arábi
 
 Este proyecto nace a partir la investigación periodística, de datos y corporativa sobre los impactos del proyecto Tren Maya en el sureste mexicano realizada por PODER.
 
-Ver [DEMO](https://projectpoder.github.io/numeros-mayas-js/demo.html).
+Ver [EJEMPLO](https://projectpoder.github.io/numeros-mayas-js/demo.html).
 
 Ejemplo de la librería en vertical:
 
@@ -55,14 +55,19 @@ Los siguientes valores se pueden configurar dentro de la variable global `numero
 
 **number_container_style**: Es el código CSS para el contenedor de los números mayas. Se puede personalizar el color. Para el tamaño utilizar zoom. Default: `display: none; position: absolute; padding: 5px; border-radius: 5px; background: #ec6; text-align: center;`.
 
+#### Contenido dinámico
+Si desea aplicar números maya a contenido dinámico, puede llamar a la función `marcarNumerosArabigos({selector: "[selector]"});` indicando un selector específico para el nuevo contenido.
+
+Nota: Actualmente, ejecutar la función dos veces sobre el mismo objeto causa problemas.
+
 ## Contribuciones
 
 Este proyecto está abierto a colaboración, algunas ideas de tareas pendientes:
 - [ ] Publicar el paquete en NPM
 - [ ] Traducir documentación
 - [ ] Modo "inline" para el reemplazo de números
-- [ ] Activar para números cargados dinámicamente
-- Nuevas funcionalidades que se hagan necesarias para usos específicos
+- [x] Activar para números cargados dinámicamente
+- [ ] Nuevas funcionalidades que se hagan necesarias para usos específicos
 
 Para consultas contactar a msz@poderlatam.org
 

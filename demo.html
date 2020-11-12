@@ -3,42 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=z, initial-scale=1.0">
-    <title>Document</title>
-    <script type="text/javascript" src="numeros-mayas.js"></script>
+    <title>Números Mayas JS - DEMO</title>
+    <style>
+        /* Este estilo es sólo de la página demo y no es necesario para el funcionamiento de la librería Numeros Mayas JS */
+        body {
+            padding: 2em;
+            background: #dfb;
+        }
+        p {
+            padding: 2em;
+            margin: 2em;
+            background: white;
+            border-radius: 1em;
+            box-shadow: white 0 0 1em;
+            line-height: 1.2em;
+        }
+        h1 {
+            text-align: center;
+            font-family: sans-serif;
+        }
+    </style>
 </head>
 <body>
-<script type="text/javascript">
-    const numeros_mayas_config = {
-        button_code: '<span style="vertical-align: super; font-size: 0.7em; color: #333; background: #ec6;padding: 2px; border-radius: 3px; cursor: pointer" title="Ver este número en idioma maya">m</span>',
-        direction: "vertical", 
-        selector: "p",
-        number_container_style: "display: none; position: absolute; padding: 5px; border-radius: 5px; background: #ec6; text-align: center;"
-    }
-</script>
-    
-
     <h1>Ejemplo de Numeros Mayas JS</h1>
-<p>
-
-
-Durante la pandemia, DICIPA ha tenido 5 contratos, uno con el IMSS por adjudicación directa y 4 con el Instituto Nacional de Pediatría (INP) por licitación pública, por un total de 20,404,578 pesos. Entre los bienes que vendió se encuentran reactivos para laboratorio, según documentaron PODER y Serendipia.
-
-</p>
-<p>
-Por su parte la empresa CENTRUM, que también radica en la Ciudad de México, se oferta en el mercado como fabricante de insumos médicos desde 1991. Esta empresa fue denunciada recientemente en Ciudad Juárez, Chihuahua, por sostener la segunda deuda más grande del Hospital Infantil de Especialidades que asciende a los 187 millones de pesos. 5 Durante la pandemia, esta empresa recibió un solo contrato superior a los 3 millones de pesos para subarrendar al Instituto Nacional de Pediatría los servicios de hemocultivos (Banco de sangre).
-</p>
-
-<p>
-
-    Por este caso, la COFECE denunció a 11 empresas y 14 personas físicas, además de imponer multas por la cantidad de 626,457,000 pesos. A estas firmas se les pudo comprobar que habían intercambiado información para coordinar la presentación o abstención de posturas en licitaciones convocadas por el IMSS.
-</p>
-<p>
-
-    Según reportan, desde 2008 los representantes del grupo conformado (inicialmente) por Seme y Semece, CENTRUM, Hemoser, Impromed, Falcón y DICIPA acordaron repartirse las licitaciones lanzadas en diversas delegaciones y Unidades Médicas de Alta Especialidad (UMAEs) del IMSS a partir de la identificación de la supuesta capacidad que cada uno tenía en las respectivas delegaciones.
-</p>
     <p>
-
-        La investigación refirió que existieron algunos arreglos entre los agentes que tuvieron por objeto establecer posturas o la abstención en licitaciones, e intercambiar información con el objeto de hacer perder al Estado. Esto ocurrió específicamente en las licitaciones del IMSS en 2008 e ISSSTE en 2010 con los mismos miembros denunciados por COFECE, según el expediente número DE-011-2016, del cual PODER posee una copia en su versión pública. 2    
+        Durante la pandemia, <strong>DICIPA</strong> <span style="background:red; width: 20px"> ha</span> tenido 5 contratos, uno con el IMSS por adjudicación directa y 4 con el Instituto Nacional de Pediatría (INP) por licitación pública, por un total de 20,404,578 pesos. Entre los bienes que vendió se encuentran reactivos para laboratorio, según documentaron PODER y Serendipia.
     </p>
+    <p>
+        Por su parte la empresa CENTRUM, que también radica en la Ciudad de México, se oferta en el mercado como fabricante de insumos médicos desde 1991. Esta empresa fue denunciada recientemente en Ciudad Juárez, Chihuahua, por sostener la segunda deuda más grande del Hospital Infantil de Especialidades que asciende a los 187 millones de pesos. 5 Durante la pandemia, esta empresa recibió un solo contrato superior a los 3 millones de pesos para subarrendar al Instituto Nacional de Pediatría los servicios de hemocultivos (Banco de sangre).
+    </p>
+
+    <p>
+        Por este caso, la COFECE denunció a 11 empresas y 14 personas físicas, además de imponer multas por la cantidad de 626,457,000 pesos. A estas firmas se les pudo comprobar que habían intercambiado información para coordinar la presentación o abstención de posturas en licitaciones convocadas por el IMSS.
+    </p>
+    <button id="botondinamico">Agregar párrafo dinámico</button>
+    <div id="parrafodinamico">
+
+    </div>
+
+    <!-- Incluir la librería Numeros Mayas JS -->
+    <script type="text/javascript" src="numeros-mayas.js"></script>
+
+    <!-- Configuración de Numeros Mayas JS -->
+    <script type="text/javascript">
+        const numeros_mayas_config = {
+            button_code: '<span style="vertical-align: super; font-size: 0.7em; color: #333; background: #ec6;padding: 2px; border-radius: 3px; cursor: pointer" title="Ver este número en idioma maya">m</span>',
+            direction: "vertical", 
+            selector: "p",
+            number_container_style: "display: none; position: absolute; padding: 5px; border-radius: 5px; background: #ec6; text-align: center;"
+        }
+    </script>
+
+    <!-- Activar contenido dinámico de Numeros Mayas JS -->
+    <script type="text/javascript">
+        /* Evento en el botón que agrega el contenido. Esto es un ejemplo, el contenido se puede agregar de mútiples formas. */
+        document.getElementById("botondinamico").addEventListener("click", function() {
+            /* Agregar contenido. Esto es un ejemplo, el contenido se puede agregar de mútiples formas. */
+            document.getElementById("parrafodinamico").innerHTML = "<p>Según reportan, desde 2008 los representantes del grupo conformado (inicialmente) por Seme y Semece, CENTRUM, Hemoser, Impromed, Falcón y DICIPA acordaron repartirse las licitaciones lanzadas en diversas delegaciones y Unidades Médicas de Alta Especialidad (UMAEs) del IMSS a partir de la identificación de la supuesta capacidad que cada uno tenía en las respectivas delegaciones.</p><p>La investigación refirió que existieron algunos arreglos entre los agentes que tuvieron por objeto establecer posturas o la abstención en licitaciones, e intercambiar información con el objeto de hacer perder al Estado. Esto ocurrió específicamente en las licitaciones del IMSS en 2008 e ISSSTE en 2010 con los mismos miembros denunciados por COFECE, según el expediente número DE-011-2016, del cual PODER posee una copia en su versión pública. 2 </p>";
+
+            /* Invocar marcarNumerosArabigos para activar Numeros Mayas JS en el contenido dinámico */
+            marcarNumerosArabigos({selector: "#parrafodinamico p"});
+        })
+    </script>
 </body>
 </html>
