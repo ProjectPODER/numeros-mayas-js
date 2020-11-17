@@ -28,7 +28,6 @@ const numeros_mayas_config = {
 
 
 marcarNumerosArabigos = function(config_local){
-
     //Apply defaults to config
     //Precedence: config_local > numeros_mayas_config global > internal defaults
     let config = Object.assign({},{
@@ -42,15 +41,22 @@ marcarNumerosArabigos = function(config_local){
         config.number_container_style+= "width: 60px";
     }
 
+    //Ocultar números mayas al clickear el body
+    document.addEventListener("click",ocultarNumerosMayas, true);
+
     // console.log("marcarNumerosArabigos",config);
 
+    //Seleccionar todos los objetos donde buscaremos los números
     parrafos = document.querySelectorAll(config.selector);
 
     if (parrafos.length == 0) {
         console.error("NumerosMayasJS","Selector didn't match any objects",config.selector);
     }
 
+    //Simplificamos el selector para usarlo de id.
     const prefix = config.selector.replace(/[^a-z]/gi, "");
+
+    //Iteramos por todos los elementos seleccionados
     let iparrafo = 0;
     for (const parrafo of parrafos) {
         iparrafo++;
@@ -171,6 +177,12 @@ const glifos_mayas = {
     }
 }
 
+function ocultarNumerosMayas() {
+    allNumeros = document.getElementsByClassName("numero-maya");
+    for (numero of allNumeros) {
+        numero.style.display = "none";
+    }
+}
 
 
 // El sistema de numeracion maya tiene cuatro niveles.
