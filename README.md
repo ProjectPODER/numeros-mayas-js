@@ -7,6 +7,8 @@ Esta librería agrega números mayas como alternativa a cualquier número arábi
 
 Este proyecto nace a partir la investigación periodística, de datos y corporativa sobre los impactos del proyecto Tren Maya en el sureste mexicano realizada por PODER.
 
+Usar [GENERADOR](https://projectpoder.github.io/numeros-mayas-js/).
+
 Ver [EJEMPLO](https://projectpoder.github.io/numeros-mayas-js/demo.html).
 
 Ejemplo de la librería en vertical:
@@ -19,9 +21,9 @@ Ejemplo de la librería en horizontal:
 
 ### ¿Qué son los números mayas?
 
-La matemática maya es una antigua técnica que aún se practica, se investiga y se enseña en diferentes zonas de centroamérica y el sur de México. Tiene grandes ventajas sobre la matemática corriente: por estar en base 20, con pocos números se puede llegar a expresar valores grandes, además es más simple en su expresión porque tiene sólo 3 símbolos: punto (1), raya (5) y cero. El cero se representa de diferentes formas. Además para hacer operaciones matemáticas (suma, resta, multiplicación , etc) resulta muy sencillo realizarlas de forma analítica sin necesidad de aprender tablas o técnicas complejas propensas a errores.
+La matemática maya es una antigua técnica que aún se practica, se investiga y se enseña en diferentes zonas de centroamérica y el sur de México. Tiene grandes ventajas sobre la matemática corriente: por estar en base 20, con pocos números se puede llegar a expresar valores grandes, además es más simple en su expresión porque tiene sólo 3 símbolos: punto (1), raya (5) y cero. Esta matemática incluyó el concepto del cero antes que en la India, este se representa de diferentes formas, siendo el caracol la más común. Además para hacer operaciones matemáticas (suma, resta, multiplicación , etc) resulta muy sencillo realizarlas de forma analítica sin necesidad de aprender tablas o técnicas complejas propensas a errores.
 
-Es importante difundir y promover el uso de esta notación para destacar lo rico de la cultura Maya y ampliar la perspectiva sobre lo que es posible hacer en matemática y en la web.
+Es importante difundir y promover el uso de esta notación para destacar lo rico de la cultura Maya y ampliar la perspectiva sobre lo que es posible hacer en matemática y en la web. Para más detalles revisa las fuentes bibliográficas consultadas para este trabajo.
 
 ## Instrucciones de uso
 
@@ -33,7 +35,7 @@ Para un ejemplo, revise el archivo `demo.html`.
 <script type="text/javascript" src="https://projectpoder.github.io/numeros-mayas-js/numeros-mayas.js"></script>
 <script type="text/javascirpt">
 const numeros_mayas_config = {
- button_code: "",
+ button_code: "<span>m</span>",
  direction: "vertical", //or horizontal
  selector: "p"
 }

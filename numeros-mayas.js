@@ -42,7 +42,7 @@ marcarNumerosArabigos = function(config_local){
     }
 
     //Ocultar números mayas al clickear el body
-    document.addEventListener("click",ocultarNumerosMayas, true);
+    document.addEventListener("click",ocultarNumerosMayas);
 
     // console.log("marcarNumerosArabigos",config);
 
@@ -82,8 +82,9 @@ marcarNumerosArabigos = function(config_local){
             if (!ignorarHTML) {
                 // console.log(palabra,Number(palabra) == NaN);
                 if(!isNaN(parseInt(palabra.replace(/,/,"")))){
-                    palabras[ipalabra] = '<span class="numero-arabigo">' + palabra + '</span>'+
-                                    '<span class="numero-toggle" data-target-id="'+prefix+(ipalabra+iparrafo)+'" data-value="'+palabra+'">'+config.button_code+'</span>'+
+                    palabras[ipalabra] = '<span class="numero-toggle" style="cursor:" data-target-id="'+prefix+(ipalabra+iparrafo)+'" data-value="'+palabra+'">' + 
+                                            '<span class="numero-arabigo">' + palabra + '</span>' +
+                                            config.button_code+'</span>'+
                                     '<span class="numero-maya" id="numero-maya-'+prefix+(ipalabra+iparrafo)+'" style="'+config.number_container_style+'"></span>';
                 }
             }
@@ -99,6 +100,7 @@ marcarNumerosArabigos = function(config_local){
         toggle = toggle_i[1];
         toggle.addEventListener("click", e => {
             // console.log(e.target);
+            ocultarNumerosMayas(e);
             target_id = e.currentTarget.dataset.targetId
             // console.log(document.getElementById("numero-maya-"+target_id));
             targetNumero = document.getElementById("numero-maya-"+target_id);
@@ -177,10 +179,14 @@ const glifos_mayas = {
     }
 }
 
-function ocultarNumerosMayas() {
-    allNumeros = document.getElementsByClassName("numero-maya");
-    for (numero of allNumeros) {
-        numero.style.display = "none";
+function ocultarNumerosMayas(e) {
+    if (e && e.target && e.target.parentNode && e.target.parentNode.className == "numero-toggle" ) {
+    }
+    else {
+        allNumeros = document.getElementsByClassName("numero-maya");
+        for (numero of allNumeros) {
+            numero.style.display = "none";
+        }
     }
 }
 

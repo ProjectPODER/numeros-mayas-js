@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=z, initial-scale=1.0">
+    <title>Números Mayas JS - Generador</title>
+    <style>
+        /* Este estilo es sólo de la página demo y no es necesario para el funcionamiento de la librería Numeros Mayas JS */
+        body {
+            padding: 2em;
+            background: #dfb;
+        }
+        ol, form, p {
+            padding: 2em;
+            margin: 2em;
+            background: white;
+            border-radius: 1em;
+            box-shadow: white 0 0 1em;
+            line-height: 1.2em;
+        }
+        h1 {
+            text-align: center;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generador de números mayas</h1>
+
+    <p>
+        Basado en <a href="https://github.com/projectpoder/numeros-mayas-js">Numeros Mayas JS</a>
+    </p>
+    <h2>Instrucciones:</h2>
+        <ol>
+            <li>
+
+                Ingrese un número o texto con números en la caja
+            </li>
+            <li>
+
+                (opcional) Elija si los números mayas se despliegan en vertical o en horizontal. 
+            </li>
+            <li>
+
+                Pulse generar. 
+            </li>
+            <li>
+                Toque en el signo para ver el número maya.
+
+            </li>
+        </ol>
+    <form>
+        <fieldset>
+
+            <label for="numero">Texto orígen (con números):</label>
+            <textarea id="numero" placeholder="123"></textarea>  
+            <select id="direccion">
+                <option>vertical</option>
+                <option>horizontal</option>
+            </select>
+            <button id="generar">Generar</button>
+        </fieldset>
+    </form>
+    <div id="parrafodinamicocontainercontainer" style="display: none">
+
+        <h2>Números generados</h2>
+    
+        <div id="parrafodinamicocontainer">
+            <p>Haga click en el icono para ver el número maya</p>
+    
+        </div>
+    </div>
+
+    <!-- Incluir la librería Numeros Mayas JS -->
+    <script type="text/javascript" src="numeros-mayas.js"></script>
+
+    <!-- Configuración de Numeros Mayas JS -->
+    <script type="text/javascript">
+        const numeros_mayas_config = {
+            button_code: '<img src="icono.png" style="height: 1em; cursor: pointer" title="Ver este número en idioma maya">',
+            direction: "vertical", 
+            selector: "p",
+            number_container_style: "display: none; position: absolute; padding: 5px; border-radius: 5px; background: #ec6; text-align: center;"
+        }
+    </script>
+
+    <!-- Activar contenido dinámico de Numeros Mayas JS -->
+    <script type="text/javascript">
+        setTimeout(() => {
+            let count = 0;
+            /* Evento en el botón que agrega el contenido. Esto es un ejemplo, el contenido se puede agregar de mútiples formas. */
+            document.getElementById("generar").addEventListener("click", function(e) {
+                e.preventDefault();
+                numero = document.getElementById("parrafodinamicocontainercontainer").style.display="block";
+
+                
+
+                numero = document.getElementById("numero").value;
+                if (numero.length < 1) {
+                    alert("Por favor ingrese un número en la caja y vuelva a presionar generar.")
+                }
+    
+                /* Agregar contenido. Esto es un ejemplo, el contenido se puede agregar de mútiples formas. */
+                document.getElementById("parrafodinamicocontainer").innerHTML = '<div id="parrafodinamico'+count+'"><p> '+numero+' </p></div>' + 
+                                                                                document.getElementById("parrafodinamicocontainer").innerHTML;
+                direction = document.getElementById("direccion").value;
+    
+                /* Invocar marcarNumerosArabigos para activar Numeros Mayas JS en el contenido dinámico */
+                marcarNumerosArabigos({selector: "#parrafodinamico"+count+" p",direction: direction});
+                count++;
+                return false;
+            })
+        },10)
+    </script>
+</body>
+</html>
